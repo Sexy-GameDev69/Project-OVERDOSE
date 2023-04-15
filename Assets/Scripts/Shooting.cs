@@ -21,11 +21,8 @@ public class Shooting : MonoBehaviour
         mainCameraTransform = Camera.main.transform;
     }
 
-    /// <summary>
-    /// Функция, осуществляющая выстрел
-    /// </summary>
-    /// <param name="targetPosition"> Конечная точка стрельбы </param>
-    public void Shoot(Vector3 targetPosition)
+    /// <param name="TargetPosition"></param>
+    public void Shoot(Vector3 TargetPosition)
     {
         if (!canShoot) return;
 
@@ -38,7 +35,7 @@ public class Shooting : MonoBehaviour
                 particle.Play();
             }
 
-            Vector3 direction = (targetPosition - mainCameraTransform.position).normalized;
+            Vector3 direction = (TargetPosition - mainCameraTransform.position).normalized;
 
             RaycastHit hit;
             if (Physics.Raycast(mainCameraTransform.position, direction, out hit, range, layerMask))
